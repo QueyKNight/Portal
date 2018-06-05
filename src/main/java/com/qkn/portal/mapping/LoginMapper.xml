@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qkn.portal.dao.LoginDao">
+    <!--目的：为Dao接口方法提供SQL语句 -->
+
+    <!--映射实体对象 -->
+    <resultMap id="User"
+               type="com.qkn.portal.pojo.User">
+        <id property="userID" column="userID" />
+        <result property="userName" column="userName"/>
+        <result property="password" column="password" />
+    </resultMap>
+
+
+    <select id="selectByCondition" resultMap="User">
+        select * from PORTAL_User  where userName = #{userName} and password = #{password}
+    </select>
+
+
+</mapper>
